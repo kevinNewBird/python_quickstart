@@ -51,3 +51,9 @@ lst5 = ["a", "b",[1,2,3,["呼吸"]],"c"]
 print(lst5[2][3][0]) # 呼吸
 
 print()
+
+#  创建空列表
+l1 = []
+l2 = list()
+print(type(l1))
+print(type(l2))

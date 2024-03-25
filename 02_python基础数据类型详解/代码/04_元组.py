@@ -12,3 +12,8 @@ print(t3)  # ('hh',)
 t4 = ("b", "c", ["张三"])
 t4[2].append("李四")
 print(t4)  # ('b', 'c', ['张三', '李四'])
+
+t5 = ()
+print(type(t5))  # 空元组
+t6 = tuple()
+print(type(t6))
