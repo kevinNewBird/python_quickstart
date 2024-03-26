@@ -16,3 +16,7 @@ lst = []
 print(bool(lst))  # False
 lst = [0]
 print(bool(lst))  #True
+print()
+
+# 复数类型
+print(type(1+2j)) # <class 'complex'>
