@@ -71,7 +71,17 @@ def printinfo3(*args, arg1, **kwargs):
 printinfo3(kwargs={"a": 1, "b": 2}, args=(1, 3), arg1=2)
 printinfo3(1, 2, name="大脚", args=1, arg1=2)
 
+## 扩展--列表和字典的实参传递
+def f1(*var_tuple):
+    print(var_tuple)
+def f2(**var_dict):
+    print(var_dict)
 
+lst = {"a",1,"b"}
+dic = {"name":"二狗","age":"猪鼻"}
+f1(*lst)  # ('a', 'b', 1)
+f2(**dic) # {'name': '二狗', 'age': '猪鼻'}
+# 4.函数的返回值
 def func():
     return 1, 2, 3, ["a", "b"]
 

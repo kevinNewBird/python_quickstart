@@ -27,3 +27,11 @@ True/Flase
 -字符串。""是False，"ss"是True。</br>
 -数字。0是False，非0是True。</br>
 -数组。空数组为False，非空数组为True。
+# 4.复数
+## 4.1.类型
+complex</br>
+语法：实部 + 虚部
+## 4.2.使用场景
+```python
+print(type(1+2j)) # <class 'complex'>
+```
