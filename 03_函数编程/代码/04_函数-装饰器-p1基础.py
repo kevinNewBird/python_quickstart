@@ -1,4 +1,4 @@
-# 1.装饰器的推导
+# 1.装饰器的雏形
 def guanjia(game):
     def inner():
         print("开挂")
