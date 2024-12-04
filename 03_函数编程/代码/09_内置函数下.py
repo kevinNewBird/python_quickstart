@@ -7,6 +7,9 @@ print(list(result))  # [('狗熊', 2011), ('盖伦', 2034), ('议长', 2026)]
 set1 = {2, 3, 4, 5}
 result2 = zip(lst1, set1)
 print(list(result2))  # [('狗熊', 2), ('盖伦', 3), ('议长', 4)]
+# 字符串
+result3 = zip(lst1, "4567689")
+print(list(result3))
 
 # 2.sorted内置函数
 s_lst = [3, 2, 6, 4, 1, 5]

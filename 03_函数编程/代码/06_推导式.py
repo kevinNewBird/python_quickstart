@@ -14,6 +14,6 @@ print(set1)
 # 3.字典推导式
 # 请将下列的列表修改成字典
 lst3 = ["刘大嘴", "李大脑袋", "狗剩儿"]
-dic = {index: data for index, data in enumerate(lst3)}
+dic = {index: data for index, data in enumerate(lst3) if index % 2 == 0}
 # dic = {index: lst3[index] for index in range(len(lst3))}
 print(dic)

@@ -9,7 +9,7 @@ print(type(s))  # <class 'set'>
 # set集合
 # s = {1,2.0,"hehe",[]} # 报错，数组是可变数据，即不可hash
 a = 2.0
-s = {1, a, "hehe", (1, 23)}  # 报错，数组是可变数据，即不可hash
+s = {1, a, "hehe", (1, 23)}  # 可存放可hash的类型，比如字符串、数字、布尔、元组
 a = 3.0
 print(type(s))  # <class 'set'>
 print(s)
@@ -44,3 +44,9 @@ print(lst)
 set1 = set(lst)
 print(set1)
 print(list(set1))
+
+# 循环遍历
+print("------循环遍历集合------")
+for item in lst:
+    print(item)
+

@@ -25,6 +25,7 @@ def f1():
 # 调用报错。嵌套函数仅支持在作用域内调用。
 # f2() # NameError: name 'f2' is not defined. Did you mean: 'f1'?
 
+# 3.闭包函数
 def ff1():
     def inner():
         print("inner")
@@ -33,8 +34,8 @@ def ff1():
 
 
 inner = ff1()  # 将一个函数当成变量进行赋值
-print(inner)  # <function ff1.<locals>.inner at 0x000001BA7931ECB0>
-inner()  # inner
+print(inner)  # 打印函数的类型：<function ff1.<locals>.inner at 0x000001BA7931ECB0>
+inner()  # 闭包函数的调用
 
 num = 10
 
@@ -47,13 +48,15 @@ fff1()
 print("方法内部修改变量：", num)  # 方法内部修改变量： 10
 
 
+# 4.内部函数改变全局变量或内部函数改变外部函数的变量
+# 4.1.在局部引入全局变量num, 并修改
 def fff2():
     global num
     num = 30
 
 
 fff2()
-print("方法内部global关键字引入全局遍历后，修改变量：", num)  # 方法内部global关键字引入全局遍历后，修改变量： 30
+print(f"方法内部global关键字引入全局遍历后，修改变量：{num}")  # 方法内部global关键字引入全局遍历后，修改变量： 30
 
 
 def fff3():
@@ -69,15 +72,16 @@ def fff3():
 fff3()
 
 
+# 4.2.内部函数改变外部函数变量（不含全局变量）
 def fff4():
-    a = 10
+    aa = 10
 
     def f1():
-        nonlocal a  # 向外找一层，看有没有该变量，如果有就引入；如果没有，继续向外找一层，直到全局（不包括）
-        a = 20
+        nonlocal aa  # 向外找一层，看有没有该变量，如果有就引入；如果没有，继续向外找一层，直到全局（不包括）
+        aa = 20
 
     f1()
-    print(a)  # 20
+    print(f"内部函数改变外部函数fff4的函数变量aa：{aa}")  # 20
 
 
 fff4()

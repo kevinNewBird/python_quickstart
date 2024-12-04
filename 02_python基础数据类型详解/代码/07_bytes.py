@@ -9,5 +9,6 @@ print(bs2)  # b'\xe5\xbc\xa0\xe4\xb8\x89'
 bs = b'\xd5\xc5\xc8\xfd'
 ## 先变成文字符号（字符串）
 s2 = bs.decode("gbk")  # 解码
+print(s2)
 bs22 = s2.encode("utf-8")
 print(bs22)

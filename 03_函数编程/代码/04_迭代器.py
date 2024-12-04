@@ -1,12 +1,12 @@
 # 迭代器的两种方案
 # 1.使用内置函数
-it = iter("你叫什么名字啊")
-print(it)
-print(next(it))
+it = iter("你叫什么名字啊")  # 使用内置函数获取迭代器
+print(it)  # <str_iterator object at 0x000002C910EC5390>
+print(next(it))  # 你
 
 # 2.使用特殊方法
-it2 = "呵呵哒".__iter__()
-print(it2)
+it2 = "呵呵哒".__iter__()  # 使用特殊方法获取迭代器
+print(it2)  # <str_iterator object at 0x000002C910F07B80>
 print(it2.__next__())
 
 # 3.模拟for循环

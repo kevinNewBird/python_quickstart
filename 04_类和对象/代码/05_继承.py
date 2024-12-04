@@ -38,4 +38,11 @@ child2 = Child2()
 print(child2.producer)  # Child2
 child3 = Child3()
 print(child3.producer)  # P1
+"""
+开启CPU单核模式，省电。。。
+P1
+使用5g网络进行通话
+使用5g网络进行通话
+关闭CPU单核模式
+"""
 child3.call_by_5g()

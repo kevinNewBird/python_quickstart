@@ -3,8 +3,10 @@ from typing import Union
 # 1.变量
 ## 1.1.方法1，变量：类型
 my_list1: list[Union[int, str]] = [1, "a", 3]
-my_tuple1: tuple[int, str, Union[list, int]] = (1, "tommy", [1, 2, 3])
+my_tuple1: tuple[int, str, Union[list, int]] = (1, "tommy", [2, 3, 4])
+my_tuple2: tuple[int, str, Union[list, int]] = (1, "tommy", 3)
 my_set1: set[Union[int, str]] = {1, 2, 3}
+my_set2: set[Union[int, str]] = {1, 2, "abcdef"}
 my_dict1: dict[str, Union[int, str]] = {"age": 666}
 
 ## 1.2.方法2，# type：类型

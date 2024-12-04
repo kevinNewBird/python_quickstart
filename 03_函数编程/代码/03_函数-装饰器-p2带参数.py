@@ -20,3 +20,5 @@ def play_lol(username, password, hero):
 play_dnf("大脚", "root@123")
 print()
 play_lol("刘能", "root@1234", "盖伦")
+f = guanjia(play_lol)
+f("刘能2", "admin@1234", "马儿扎哈")

@@ -46,18 +46,18 @@ print(dic3.get("java1010"))
 ### 2.1.1.基础使用
 dic5 = {1: "java", 2: "c", 3: "python"}
 print(dic5)
-print(dic5.keys())          # dict_keys([1, 2, 3])
-print(list(dic5.keys()))    # [1, 2, 3]
-print(type(dic5.keys()))    # <class 'dict_keys'>
-print(dic5.values())        # dict_values(['java', 'c', 'python'])
+print(dic5.keys())  # dict_keys([1, 2, 3])
+print(list(dic5.keys()))  # [1, 2, 3]
+print(type(dic5.keys()))  # <class 'dict_keys'>
+print(dic5.values())  # dict_values(['java', 'c', 'python'])
 print(list(dic5.values()))  # ['java', 'c', 'python']
 print(type(dic5.values()))  # <class 'dict_values'>
-print(dic5.items())         # dict_items([(1, 'java'), (2, 'c'), (3, 'python')])
-print(list(dic5.items()))   # [(1, 'java'), (2, 'c'), (3, 'python')]
-print(type(dic5.items()))   # <class 'dict_items'>
+print(dic5.items())  # dict_items([(1, 'java'), (2, 'c'), (3, 'python')])
+print(list(dic5.items()))  # [(1, 'java'), (2, 'c'), (3, 'python')]
+print(type(dic5.items()))  # <class 'dict_items'>
 # 直接遍历
 for key in dic5:
-    print(key,dic5[key])
+    print(key, dic5[key])
 ## 2.1.2.键遍历
 for s_key in dic5.keys():
     val = dic5.get(s_key)
@@ -79,9 +79,12 @@ a, b = 1, 2  # 定义了a,b两个变量，分别赋值1和2
 ### 对于列表和元组都可以使用解构操作，如下
 c, d = (3, 4)
 e, f = [5, 6]
+lst = [7, 8]
+h, g = lst
 print(f"""a:{a},b:{b}
 c:{c},d:{d}
 e:{e},f:{f}
+h:{h},f:{g}
 """)
 
 # 4.3.字典的嵌套
@@ -106,7 +109,7 @@ print(dic)
 ## 4.4.字典的循环删除
 tmp_key_lst = []
 dic5 = {1: "java", 2: "c", 3: "python"}
-for s_key,s_val in dic5.items():
+for s_key, s_val in dic5.items():
     if s_val.startswith("py"):
         tmp_key_lst.append(s_key)
 
