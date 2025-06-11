@@ -1,2 +1,3 @@
 .venv
 report
+07_pytestauto/test_report/*
