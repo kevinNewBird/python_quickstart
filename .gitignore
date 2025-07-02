@@ -1,3 +1,5 @@
 .venv
 report
 07_pytestauto/test_report/*
+06_pytest/__pycache__
+06_pytest/conftest/__pycache__
