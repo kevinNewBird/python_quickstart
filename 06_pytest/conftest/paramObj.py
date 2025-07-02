@@ -1,4 +1,4 @@
-class TestObj:
+class ParamObj:
 
     host = None
     task_json = None

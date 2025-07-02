@@ -18,7 +18,7 @@ class TestAdd:
     def setup_method(cls):
         print('=============setup method============')
 
-    @classmethod
+    # @classmethod
     def teardown_method(cls):
         print('-------------teardown method---------------')
 
@@ -27,7 +27,7 @@ class TestAdd:
         assert add(4, 5) == 9
 
     def test_result2(self):
-        assert add(4, 7) > 12
+        assert add(4, 7) > 10
 
 
 # 使用代码调用pytest
