@@ -23,9 +23,13 @@ for future in concurrent.futures.as_completed(futures):
 print("****************************************")
 futures = [pool.submit(task, i) for i in range(20,30)]
 for future in concurrent.futures.as_completed(futures):
-    result = future.result()
+    # result = future.result()
+    pass
 
-print('cpu:'.format(os.cpu_count()))
+print('cpu:{}'.format(os.cpu_count()))
+start=time.time()
+time.sleep(2)
+print(time.time()-start)
 
 
 

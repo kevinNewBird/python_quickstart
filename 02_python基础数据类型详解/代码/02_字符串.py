@@ -1,4 +1,6 @@
 # 1.字符串格式化
+import os.path
+
 print("-----------------字符串格式化-------------")
 ## 1.1.使用占位符
 s = "我是%s，%d岁，身高%f米" % ("a", 2, 3.0)
@@ -104,3 +106,15 @@ print(len(s)) # 5
 lst = ["java", "python", "c"]
 print("_".join(lst))
 print()
+
+# ss = 'ss.sss.txt'
+name=os.path.join('a','b','.txt')
+print(name)
+# 返回指定文件的标准路径，而非软链接所在的路径。
+# 比如：/usr/bin/python 指向 /usr/bin/python2.7。 realpath('/usr/bin/path')返回的将是/usr/bin/python2.7
+print(os.path.relpath(__file__))
+# 返回一个绝对路径
+print(os.path.abspath(__file__))
+print(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+print(os.path.basename(__file__))
+print(os.path.dirname(__file__))
