@@ -5,9 +5,12 @@ lst = ["a", 1, "b"]
 print(lst[0])
 print(lst[1:])
 print(lst[::-1])
+lst = lst * 10
+print(lst)
 ## 越界
 # print(lst[4]) # 越界
 print("数组长度：%d" % (len(lst)))
+lst = lst[0:3]
 ## 循环遍历1
 for item in lst:
     print(item)
@@ -41,6 +44,8 @@ lst2.insert(0, "潘金莲")  # 指定位置插入
 print(lst2)
 lst2.extend(["叮当猫", "hello kitty"])  # 合并列表
 print(lst2)
+lst3 = lst2 + ["叮当猫2", "hello kitty2"]
+print(lst3)
 ## 删除元素
 lst3 = ["a", "b", "c", "d"]
 ret = lst3.pop(2)
@@ -51,10 +56,18 @@ print(lst3)
 ## 修改
 lst3[0] = "a_modify"
 print(lst3)
+del lst3[1:]
+print(lst3)
+
+## 克隆
+lst31 = lst3.copy()
+lst32 = lst3[:]
+lst3[0]='a'
+print('before: ',lst3,'\ncopy m1: ',lst31, '\ncopy m2: ',lst32)
 ## 查询
 print(lst3[0])
+print(lst3.index("a"))
 print()
-
 # 列表的其它操作
 print("--------------列表的其它操作-------------")
 ## 排序
@@ -63,6 +76,8 @@ lst4.sort()
 print(lst4)
 lst4.sort(reverse=True)
 print(lst4)
+lst5 = sorted(lst4)
+print("before: ",lst4,"\nafter: ",lst5)
 ## 嵌套使用
 lst5 = ["a", "b", [1, 2, 3, ["呼吸"]], "c"]
 print(lst5[2][3][0])  # 呼吸

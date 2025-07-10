@@ -59,8 +59,10 @@ print("-----------------字符串的替换和切割-------------")
 # 3.2.1.替换
 sr = "  我是谁，我来自哪里！！   \n  \t"
 print(sr.strip())
+print(sr.strip().strip("！"))
 sr2 = "python_java_c_csharp_javascript"
 print(sr2.replace("_", "#"))
+print(sr2.replace("_", "#", 1))
 # 3.2.2.切割
 sp = "python_java_c_csharp_javascript"
 print(sp.split("_"))
@@ -101,14 +103,28 @@ print(f"{sint}是否为整数: %s" % sint.isdecimal())  # False
 print(f"{sint}是否为整数: %s" % sint.isnumeric())  # True
 # 字符长度
 s = "12345"
-print(len(s)) # 5
+print(len(s))  # 5
 # 字符连接
 lst = ["java", "python", "c"]
 print("_".join(lst))
 print()
 
+# layout排版
+s = "I am Center"
+print("[{}]".format(s.center(30)))
+s = "I am Left"
+print("[{}]".format(s.ljust(30)))
+s = "I am Right"
+print("[{}]".format(s.rjust(30)))
+
+# 排序
+print(sorted("a1b2cds"))
+
+dic = {'name': 'a', 'age': 18}
+print("{name} ==== {age}".format_map(dic))
+
 # ss = 'ss.sss.txt'
-name=os.path.join('a','b','.txt')
+name = os.path.join('a', 'b', '.txt')
 print(name)
 # 返回指定文件的标准路径，而非软链接所在的路径。
 # 比如：/usr/bin/python 指向 /usr/bin/python2.7。 realpath('/usr/bin/path')返回的将是/usr/bin/python2.7

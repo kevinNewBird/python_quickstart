@@ -29,14 +29,17 @@ print(s2)
 ss1 = {"张三", "赵四", "刘能"}
 ss2 = {"tommy", "刘能"}
 ret = ss1.difference(ss2)  # 取差集，原集合不发生变化。{'赵四', '张三'}
-print(ret)
-print(ss1 - ss2)
+print('差集：',ret)
+print('差集：',ss1 - ss2)
 ret = ss1.intersection(ss2)  # 取交集，原集合不发生变化。{'刘能'}
-print(ret)
-print(ss1 & ss2)
+print('交集：',ret)
+print('交集：',ss1 & ss2)
 ret = ss1.union(ss2)  # 取并集，原集合不发生变化。{'刘能', '张三', 'tommy', '赵四'}
-print(ret)
-print(ss1 | ss2)
+print('并集：',ret)
+print('并集：',ss1 | ss2)
+# 合并两个集合中不同的元素
+# {'tommy', '赵四', '张三'}
+print('异或：', ss1 ^ ss2)
 
 # 列表的去重
 lst = ["张", "张"]

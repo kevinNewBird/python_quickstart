@@ -27,6 +27,8 @@ print(dic2)
 # dic2.pop("c") # 键不存在，删除将报错
 # del dic2["c"]   # 键不存在，删除将报错
 # print(dic2)
+dic2.clear()  # 清空
+print(dic2)
 print()
 
 ## 1.3.查找
