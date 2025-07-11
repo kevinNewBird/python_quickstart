@@ -1,3 +1,6 @@
+import time
+
+
 def wrapper1(game):
     def inner(*args, **kwargs):
         print("进入wrapper1")
@@ -47,3 +50,28 @@ class Dog:
     @name.setter  # 类似于setName
     def name(self, name):
         self.__name = name
+
+
+## 测试数组的性能
+## 计时器
+def timer(func):
+    def inner(*args, **kwargs):
+        start = time.time_ns()
+        ret = func(*args, **kwargs)
+        print("函数{}执行耗时：{}ns".format(func.__name__, time.time_ns() - start))
+        return ret
+
+    return inner
+
+
+@timer
+def removePos(lst: list, index: int):
+    if not lst:
+        pass
+    del lst[index]
+
+
+lst1 = [i for i in range(1, 1000000)]
+lst2 = [i for i in range(1, 1000000)]
+removePos(lst1, 0)
+removePos(lst2, -1)

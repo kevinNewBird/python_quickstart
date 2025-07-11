@@ -42,5 +42,7 @@ def order():
 
 gen = order()
 print(gen.__next__())
+print("="*30)
 for lst in gen:
     print(lst)
+    print("*"*30)
