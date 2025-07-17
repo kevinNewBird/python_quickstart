@@ -39,6 +39,11 @@ with (open("../资源/刘诗诗.jpeg", mode="rb") as flr, \
       open("../资源/刘诗诗_copied.jpeg", mode="wb") as flw):
     flw.write(flr.read())
 
+# 复制文件的别的方式，引入shutil
+import shutil
+
+shutil.copy("../资源/刘诗诗.jpeg", "../资源/刘诗诗_copied2.jpeg")
+
 # 修改文件中的内容
 import os  # 引入操作系统相关的模块
 import time  # 引入时间相关的模块
@@ -56,3 +61,21 @@ time.sleep(3)
 os.remove("../资源/人名单.txt")
 time.sleep(3)
 os.rename("../资源/人名单_副本.txt", "../资源/人名单.txt")
+
+# 切换工作目录
+os.chdir('..')
+flist = os.listdir('.')
+print(flist)
+os.chdir('代码')
+
+# 通配符搜索
+import glob
+
+"""
+- * : matches everything
+- ? : matches a single character
+- [abc] : matches a character a, b or c
+- [!abc] : matches any character except a, b or c
+"""
+glist = glob.glob("09**")
+print('搜索', os.path.dirname(__file__), '\n', '结果为：', glist)

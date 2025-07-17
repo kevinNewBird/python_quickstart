@@ -1,45 +1,15 @@
-class Dog:
-
-    def __init__(self, breed, age):
-        self._breed = breed
-        self._age = age
-
-    @classmethod
-    def format_json(cls, data):
-        return cls(data['breed'], data['age'])
-
-    @staticmethod
-    def print__(dog):
-        return 'breed = {}, age = {}'.format(dog.breed, dog.age)
-
-    @property  # 等价于getBreed
-    def breed(self):
-        return self._breed
-
-    @breed.setter  # 等价于 setBreed
-    def breed(self, breed):
-        self._breed = breed
+class Cat:
+    name = None
 
     @property
-    def age(self):
-        return self._age
+    def name_(self):
+        return self.name
 
-    @age.setter
-    def age(self, age):
-        self._age = age
-
-    def __str__(self):
-        return 'breed = {}, age = {}'.format(self._breed, self._age)
+    @name_.setter
+    def name_(self, name):
+        self.name = name
 
 
-dogObj = Dog.format_json({'breed': '柯基', 'age': 2})
-print("classmethod: ", dogObj)
-print("=" * 40)
-dogObj = Dog('unknown', -1)
-dogObj.age = 10  # 自动调用setter
-dogObj.breed = '雪纳瑞' # 自动调用setter
-print("property+setter: ", dogObj)
-dogObj = Dog('test1',3)
-print(Dog.print__(dogObj))
-
-print(dogObj.breed)
+cat = Cat()
+cat.name_ = 'kitty'  # call setter
+print(cat.name_)  # call getter
