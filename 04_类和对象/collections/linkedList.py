@@ -85,12 +85,17 @@ class LinkedList:
         while p is not None and p.val != val:
             idx += 1
             p = p.next
-        return -1 if idx >= self.length() else idx
+        return -1 if idx >= self.__len__() else idx
+
+    # 这样就可以支持 in
+    def __contains__(self, item):
+        return self.index(item) != -1
 
     def is_empty(self):
         return self.__head is None
 
-    def length(self):
+    # 对应内置函数len()
+    def __len__(self):
         return self.__count
 
     def __str__(self):
@@ -123,7 +128,10 @@ print("insert linkedList result".ljust(25, " "), ":", ll)
 ll.insert(2, 3)
 print("insert linkedList result".ljust(25, " "), ":", ll)
 ll.insert(5, -1)
+print("contain 5 element".ljust(25, " "), ":", 6 in ll)
+print("contain 5 element".ljust(25, " "), ":", 5 in ll)
 print("insert linkedList result".ljust(25, " "), ":", ll)
+print("linkedList length".ljust(25, " "), ":", len(ll))
 print("index linkedList result".ljust(25, " "), ":", ll.index(6))
 print("index linkedList result".ljust(25, " "), ":", ll.index(3))
 print("index linkedList result".ljust(25, " "), ":", ll.index(-1))
