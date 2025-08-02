@@ -41,12 +41,20 @@ def get_all_links(page_content: str):
     if all_links:
         all_links = [link.strip("/") for link in all_links
                      if (link.startswith("http") or link.startswith("//"))
-                     and not link.startswith("http://www.cyberpolice.cn") and not link.startswith("https://www.kalebooster.com")
+                     and not link.startswith("http://www.cyberpolice.cn") and not link.startswith(
+                "https://www.kalebooster.com")
                      and not link.startswith("https://twitter.com") and not link.startswith("https://server.m.pp.cn")
-                     and not link.startswith("https://server.m.pp.cn") and not link.startswith("https://www.wandoujia.com")
-                     and not link.startswith("https://assistant.9game.cn") and not link.startswith("https://www.9game.cn")
+                     and not link.startswith("https://server.m.pp.cn") and not link.startswith(
+                "https://www.wandoujia.com")
+                     and not link.startswith("https://assistant.9game.cn") and not link.startswith(
+                "https://www.9game.cn")
                      and not link.startswith("http://www.12377.cn") and not link.startswith("https://feedback.uc.cn")
-                     and not link.startswith("http://pc.duowan.com") and ".163.com" not in link]
+                     and not link.startswith("http://pc.duowan.com") and ".163.com" not in link
+                     and not link.startswith("https://chrome.google.com") and not link.startswith("http://open.uc.cn")
+                     and not link.startswith("https://job.alibaba.com") and not link.startswith("http://uowechat.wandoujia.com")
+                     and "game.qq.com" not in link and ".9game.cn" not in link
+                     and ".25pp.com" not in link and "aliapp.open." not in link
+                     and "weibo.com" not in link and ".12377.cn" not in link]
 
     for link in all_links:
         parsed_url = urlparse(link)
@@ -55,7 +63,8 @@ def get_all_links(page_content: str):
             if ext_name in ('.mp4', '.avi', '.asf'
                             , '.mov', '.flv', '.pdf'
                             , '.mpg', '.mpeg', '.wmv'
-                            , '.exe', '.rar', '.zip', '.apk'):
+                            , '.exe', '.rar', '.zip'
+                            , '.apk', '.dmg'):
                 print("skip file download: ", link)
                 all_links.remove(link)
     return all_links
@@ -67,10 +76,12 @@ def union(p, q):
             p.append(e)
 
 
-def crawl_web(seed):
+def crawl_web(seed, max_depth):
     tocrawl = seed
     crawled = []
-    while tocrawl:
+    next_depth = []
+    depth = 0
+    while tocrawl and depth <= max_depth:
         page_url = tocrawl.pop()
         print("starting crawling:", page_url)
         if page_url not in crawled:
@@ -78,8 +89,14 @@ def crawl_web(seed):
             if page_content:
                 all_links_onpage = get_all_links(page_content)
                 if all_links_onpage:
-                    union(tocrawl, all_links_onpage)
+                    union(next_depth, all_links_onpage)
             crawled.append(page_url)
+
+        if not tocrawl:
+            print("next round")
+            tocrawl, next_depth = next_depth, []
+            depth += 1
+
     return crawled
 
 
@@ -91,4 +108,5 @@ all_seeds = [item['href'] for result in all_results for item in result.find_all(
 print("主页面种子列表：", all_seeds)
 
 crawling_seeds = all_seeds
-crawl_web(crawling_seeds)
+crawled_webs = crawl_web(crawling_seeds,2)
+print("已经爬取的地址列表：", crawled_webs)
