@@ -14,12 +14,12 @@ dc_heros = [
 Flash,Barry Allen
 Atom,"Ray, Palmer"
 """
-with open('dc_heros.csv', 'w+') as fout:
+with open('../../09_数据库/代码/dc_heros.csv', 'w+') as fout:
     csvout = csv.writer(fout)
     csvout.writerows(dc_heros)
 
 # 1.读取为列表
-with open('dc_heros.csv', 'r') as fin:
+with open('../../09_数据库/代码/dc_heros.csv', 'r') as fin:
     csvin = csv.reader(fin)
     hero_docs_in = [row for row in csvin]
 
@@ -39,7 +39,7 @@ def read_csv_to_dict(filename):
     return hero_docs_dict
 
 
-print('Read dc_heros.csv to dictionary, the content is : ', read_csv_to_dict('dc_heros.csv'), '\n', '\n')
+print('Read dc_heros.csv to dictionary, the content is : ', read_csv_to_dict('../../09_数据库/代码/dc_heros.csv'), '\n', '\n')
 print("=" * 150)
 
 # 2.csv文件写入操作: DictReader和DictWriter方法
@@ -49,12 +49,12 @@ hero_dict_docs = [
     {'NAME': 'Flash', 'REAL NAME': 'Barry Allen'},
     {'NAME': 'Atom', 'REAL NAME': 'Ray, Palmer'}
 ]
-with open('dc_heros.csv', 'w+') as fout:
+with open('../../09_数据库/代码/dc_heros.csv', 'w+') as fout:
     cout = csv.DictWriter(fout, hero_dict_docs[0].keys())
     cout.writeheader()
     cout.writerows(hero_dict_docs)
 
-print('Read dc_heros.csv to dictionary, the content is : ', read_csv_to_dict('dc_heros.csv'), '\n', '\n')
+print('Read dc_heros.csv to dictionary, the content is : ', read_csv_to_dict('../../09_数据库/代码/dc_heros.csv'), '\n', '\n')
 
 import json
 
